@@ -1,439 +1,505 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>प्रसादम कैफे — Menu</title>
+<title>Prashadam Restaurant — Menu</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Hind:wght@400;500;600&family=Spectral:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Hind:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <style>
-  :root{
-    --cream: #FBF1DE;
-    --cream-deep: #F1E1BC;
-    --brown: #6B4226;
-    --brown-soft: #8B5A2B;
-    --magenta: #C2136B;
-    --magenta-deep: #8E0E4E;
-    --gold: #C99A3D;
-    --leaf: #2E7D32;
-    --ink: #2B1810;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--cream);
-    background-image:radial-gradient(circle at 10% 8%, rgba(194,19,107,0.05) 0, transparent 38%),
-                      radial-gradient(circle at 90% 90%, rgba(107,66,38,0.06) 0, transparent 42%);
-    color:var(--ink);
-    font-family:'Hind', sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
+:root{
+  --green:#073f31;
+  --green-2:#0b5140;
+  --green-3:#12604c;
+  --cream:#efe7bd;
+  --cream-2:#f7f0d2;
+  --ink:#17352b;
+  --muted:#cdd9c8;
+  --gold:#d8bf68;
+  --white:#fffdf4;
+}
 
-  /* ---------- Hero / Logo ---------- */
-  header{
-    text-align:center;
-    padding:44px 20px 28px;
-  }
-  .lotus{width:74px; height:62px; margin:0 auto 4px;}
-  .lotus path{fill:none; stroke:var(--magenta); stroke-width:2.6; stroke-linecap:round;}
-  .brand{
-    font-family:'Baloo 2', sans-serif;
-    font-weight:800;
-    font-size:clamp(40px,9vw,60px);
-    color:var(--magenta);
-    line-height:1;
-    letter-spacing:0.01em;
-  }
-  .brand-sub{
-    font-family:'Baloo 2', sans-serif;
-    font-weight:600;
-    font-size:clamp(20px,4.5vw,28px);
-    color:var(--magenta-deep);
-    margin-top:-4px;
-  }
-  .pure-veg{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    width:44px; height:44px;
-    border-radius:50%;
-    background:var(--leaf);
-    color:#fff;
-    font-family:'Space Mono', monospace;
-    font-size:8px;
-    line-height:1.15;
-    font-weight:700;
-    letter-spacing:0.02em;
-    margin-top:10px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.18);
-  }
-  .welcome-line{
-    margin-top:22px;
-    font-size:15px;
-    color:#5c3a2b;
-    max-width:420px;
-    margin-left:auto; margin-right:auto;
-  }
-  .wave{
-    width:120px; height:20px;
-    margin:14px auto 0;
-    opacity:0.5;
-  }
-  .wave path{fill:none; stroke:var(--brown); stroke-width:1.5;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--green);
+  color:var(--cream);
+  font-family:'Hind',sans-serif;
+  overflow-x:hidden;
+}
 
-  /* ---------- Blessing box (temple affiliation) ---------- */
-  .blessing-wrap{
-    max-width:520px;
-    margin:26px auto 0;
-    padding:0 20px;
-  }
-  .blessing-box{
-    border:1.5px solid var(--brown-soft);
-    border-radius:10px;
-    padding:14px 18px;
-    text-align:center;
-    position:relative;
-    background:rgba(255,255,255,0.35);
-  }
-  .blessing-box::before{
-    content:'';
-    position:absolute;
-    inset:4px;
-    border:1px solid var(--gold);
-    border-radius:7px;
-    pointer-events:none;
-  }
-  .blessing-box p{
-    margin:3px 0;
-    font-size:15px;
-    color:var(--brown);
-    font-weight:500;
-  }
-  .blessing-box .small{
-    font-size:11px;
-    color:var(--brown-soft);
-    font-family:'Space Mono',monospace;
-    letter-spacing:0.08em;
-    margin-top:6px;
-  }
+/* Subtle editorial texture */
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.10;
+  background-image:
+    radial-gradient(circle at 15% 15%, #fff 0 1px, transparent 1.5px),
+    radial-gradient(circle at 80% 35%, #fff 0 1px, transparent 1.5px),
+    radial-gradient(circle at 35% 80%, #fff 0 1px, transparent 1.5px);
+  background-size:90px 90px,130px 130px,170px 170px;
+  z-index:0;
+}
 
-  main{
-    max-width:820px;
-    margin:0 auto;
-    padding:38px 20px 20px;
-  }
+.page{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  margin:auto;
+  padding:18px 16px 50px;
+}
 
-  /* ---------- Menu accordion cards ---------- */
-  .menu-card{
-    border:1.5px solid var(--brown-soft);
-    border-radius:12px;
-    margin-bottom:16px;
-    background:rgba(255,255,255,0.4);
-    overflow:hidden;
-    position:relative;
-  }
-  .menu-card::before{
-    content:'';
-    position:absolute;
-    inset:3px;
-    border:1px solid var(--gold);
-    border-radius:9px;
-    pointer-events:none;
-  }
-  .menu-card summary{
-    list-style:none;
-    cursor:pointer;
-    padding:16px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    font-family:'Baloo 2', sans-serif;
-    font-weight:600;
-    font-size:19px;
-    color:var(--magenta-deep);
-  }
-  .menu-card summary::-webkit-details-marker{display:none;}
-  .menu-card summary .arrow{
-    font-family:'Space Mono',monospace;
-    font-size:14px;
-    color:var(--brown-soft);
-    transition:transform 0.25s ease;
-  }
-  .menu-card[open] summary .arrow{transform:rotate(180deg);}
-  .menu-card .body{
-    padding:0 20px 16px;
-  }
+/* HERO */
+.hero{
+  text-align:center;
+  padding:10px 10px 38px;
+}
 
-  .item{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:14px;
-    padding:11px 0;
-    border-bottom:1px dotted rgba(43,24,16,0.16);
-    font-family:'Spectral', serif;
-  }
-  .item:last-child{border-bottom:none;}
-  .item-name{font-weight:600; font-size:16.5px; color:var(--ink);}
-  .tag{
-    display:inline-block;
-    width:9px; height:9px;
-    border-radius:50%;
-    border:1.5px solid var(--leaf);
-    margin-right:8px;
-    vertical-align:middle;
-    position:relative; top:-1px;
-  }
-  .tag.spicy{border-color:var(--magenta); background:var(--magenta);}
-  .item-desc{font-size:13px; color:#6b5240; margin-top:3px; max-width:520px;}
-  .item-price{font-family:'Space Mono', monospace; font-size:14.5px; color:var(--magenta-deep); white-space:nowrap;}
+.brand-top{
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--cream);
+  opacity:.85;
+}
 
-  .legend{
-    display:flex; gap:18px; flex-wrap:wrap;
-    font-size:12px; color:#6b5240;
-    margin:6px 4px 0;
-  }
-  .legend span{display:flex; align-items:center; gap:6px;}
+.lotus{
+  width:58px;
+  height:48px;
+  margin:12px auto 0;
+}
+.lotus path{
+  fill:none;
+  stroke:var(--cream);
+  stroke-width:2.8;
+  stroke-linecap:round;
+}
 
-  /* ---------- QR + Contact ---------- */
-  .connect-section{
-    margin-top:46px;
-    padding:40px 20px 44px;
-    background:var(--magenta-deep);
-    border-radius:14px;
-    text-align:center;
-  }
-  .connect-heading{
-    font-family:'Baloo 2', sans-serif;
-    color:var(--cream);
-    font-weight:700;
-    font-size:24px;
-    margin-bottom:4px;
-  }
-  .connect-sub{
-    color:#f0c9dd;
-    font-size:13px;
-    margin-bottom:24px;
-  }
-  .thali-ring{
-    width:176px; height:176px;
-    margin:0 auto;
-    border-radius:50%;
-    background:radial-gradient(circle, #fff 0%, #fff 62%, var(--gold) 63% 72%, var(--magenta) 73% 78%, var(--gold) 79% 100%);
-    display:flex; align-items:center; justify-content:center;
-    padding:13px;
-    box-shadow:0 8px 26px rgba(0,0,0,0.3);
-  }
-  #qrcode{width:140px; height:140px;}
-  #qrcode img{display:block; width:140px !important; height:140px !important;}
+.hero h1{
+  margin:5px 0 0;
+  font-family:'Baloo 2',sans-serif;
+  font-size:clamp(64px,15vw,132px);
+  line-height:.78;
+  letter-spacing:-.045em;
+  color:var(--cream);
+  text-transform:uppercase;
+}
 
-  .contact-list{
-    margin-top:28px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    align-items:center;
-  }
-  .contact-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.35);
-    color:var(--cream);
-    text-decoration:none;
-    font-family:'Hind', sans-serif;
-    font-size:14.5px;
-    font-weight:500;
-    padding:10px 20px;
-    border-radius:30px;
-    transition:background 0.2s ease;
-    min-width:230px;
-    justify-content:center;
-  }
-  .contact-pill:hover{background:rgba(255,255,255,0.22);}
-  .contact-pill .icon{font-size:16px;}
+.hero h2{
+  margin:16px 0 0;
+  font-family:'Baloo 2',sans-serif;
+  font-size:clamp(24px,5vw,42px);
+  line-height:1;
+  color:var(--cream);
+  letter-spacing:.02em;
+}
 
-  footer{
-    text-align:center;
-    padding:26px 20px 40px;
-    font-size:12px;
-    color:#8a725f;
-    letter-spacing:0.03em;
-  }
+.pure-veg{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:58px;
+  height:58px;
+  margin-top:18px;
+  border:2px solid var(--cream);
+  border-radius:50%;
+  font-family:'Space Mono',monospace;
+  font-size:9px;
+  line-height:1.1;
+  font-weight:700;
+  letter-spacing:.04em;
+}
 
-  @media (max-width:480px){
-    .item{flex-direction:column; gap:2px;}
+/* Central editorial pattern */
+.menu-flow{
+  position:relative;
+  padding:12px 0 20px;
+}
+
+.menu-flow:before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:190px;
+  background:var(--cream);
+  clip-path:polygon(
+    0 0,100% 0,100% 5%,72% 9%,72% 16%,100% 20%,
+    100% 28%,72% 32%,72% 39%,100% 43%,100% 51%,
+    72% 55%,72% 62%,100% 66%,100% 74%,72% 78%,
+    72% 85%,100% 89%,100% 100%,0 100%,0 89%,
+    28% 85%,28% 78%,0 74%,0 66%,28% 62%,28% 55%,
+    0 51%,0 43%,28% 39%,28% 32%,0 28%,0 20%,
+    28% 16%,28% 9%,0 5%
+  );
+  z-index:0;
+}
+
+/* Menu item */
+.menu-item{
+  position:relative;
+  min-height:185px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:24px;
+  margin:0 0 10px;
+  z-index:1;
+}
+
+.menu-item:nth-child(even){
+  direction:rtl;
+}
+.menu-item:nth-child(even) > *{
+  direction:ltr;
+}
+
+.item-copy{
+  padding:22px 18px;
+}
+.menu-item:nth-child(odd) .item-copy{
+  text-align:right;
+}
+.menu-item:nth-child(even) .item-copy{
+  text-align:left;
+}
+
+.category{
+  font-family:'Space Mono',monospace;
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  opacity:.65;
+  margin-bottom:4px;
+}
+
+.item-title{
+  margin:0;
+  font-family:'Baloo 2',sans-serif;
+  font-weight:700;
+  font-size:clamp(29px,6vw,48px);
+  line-height:.92;
+  color:var(--cream);
+  letter-spacing:-.02em;
+}
+
+.item-desc{
+  margin:9px 0 0;
+  font-size:14px;
+  line-height:1.35;
+  color:var(--muted);
+  max-width:330px;
+}
+
+.menu-item:nth-child(odd) .item-desc{
+  margin-left:auto;
+}
+
+.price{
+  display:inline-block;
+  margin-top:10px;
+  font-family:'Space Mono',monospace;
+  font-size:13px;
+  color:var(--cream);
+  border-bottom:1px solid rgba(239,231,189,.55);
+  padding-bottom:2px;
+}
+
+.food-visual{
+  width:155px;
+  height:155px;
+  margin:auto;
+  border-radius:50%;
+  overflow:hidden;
+  position:relative;
+  border:7px solid rgba(239,231,189,.92);
+  box-shadow:0 16px 34px rgba(0,0,0,.28);
+  background:
+    radial-gradient(circle at 35% 30%, #f5d88c 0 8%, transparent 9%),
+    radial-gradient(circle at 65% 60%, #c87c32 0 13%, transparent 14%),
+    radial-gradient(circle at 38% 72%, #7a3d24 0 11%, transparent 12%),
+    radial-gradient(circle at 70% 25%, #d4a94d 0 8%, transparent 9%),
+    linear-gradient(145deg,#b86b32,#f0c86f 48%,#8d4225);
+}
+
+.food-visual:after{
+  content:"";
+  position:absolute;
+  inset:12%;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);
+}
+
+/* Visual variations */
+.visual-2{
+  background:
+    radial-gradient(circle at 30% 35%, #f3e0a0 0 13%, transparent 14%),
+    radial-gradient(circle at 67% 35%, #d9823b 0 12%, transparent 13%),
+    radial-gradient(circle at 50% 70%, #f6c96e 0 17%, transparent 18%),
+    linear-gradient(145deg,#8a4b2c,#c76b36 50%,#f1c45f);
+}
+.visual-3{
+  background:
+    radial-gradient(circle at 35% 28%, #f0d27e 0 12%, transparent 13%),
+    radial-gradient(circle at 65% 58%, #7a4d2b 0 14%, transparent 15%),
+    radial-gradient(circle at 40% 72%, #d9a84e 0 13%, transparent 14%),
+    linear-gradient(145deg,#6e3827,#bf6d35 52%,#e9c56d);
+}
+.visual-4{
+  background:
+    radial-gradient(circle at 28% 38%, #f5e4a5 0 12%, transparent 13%),
+    radial-gradient(circle at 68% 68%, #d58a3a 0 15%, transparent 16%),
+    radial-gradient(circle at 62% 28%, #a75d2e 0 9%, transparent 10%),
+    linear-gradient(145deg,#a75a31,#e2ae53 52%,#7b4129);
+}
+.visual-5{
+  background:
+    radial-gradient(circle at 30% 30%, #f3d987 0 12%, transparent 13%),
+    radial-gradient(circle at 68% 48%, #b95d31 0 15%, transparent 16%),
+    radial-gradient(circle at 45% 73%, #f1c261 0 10%, transparent 11%),
+    linear-gradient(145deg,#7d4229,#c77734 50%,#efc86e);
+}
+
+/* Legend */
+.legend{
+  position:relative;
+  z-index:2;
+  margin:28px auto 0;
+  max-width:500px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
+.legend strong{color:var(--cream)}
+
+/* QR / contact */
+.connect{
+  position:relative;
+  z-index:2;
+  margin:42px auto 0;
+  max-width:580px;
+  padding:28px 20px;
+  text-align:center;
+  border:1px solid rgba(239,231,189,.38);
+  border-radius:28px;
+  background:rgba(0,0,0,.12);
+  backdrop-filter:blur(8px);
+}
+
+.connect h3{
+  margin:0;
+  font-family:'Baloo 2',sans-serif;
+  font-size:32px;
+  color:var(--cream);
+}
+
+.connect p{
+  margin:2px 0 20px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.qr-shell{
+  width:170px;
+  height:170px;
+  margin:auto;
+  padding:12px;
+  background:var(--cream);
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#qrcode,#qrcode img{
+  width:146px !important;
+  height:146px !important;
+}
+
+.contact-list{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
+.contact-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--cream);
+  text-decoration:none;
+  border:1px solid rgba(239,231,189,.35);
+  border-radius:999px;
+  padding:9px 16px;
+  font-size:13px;
+  transition:.2s ease;
+}
+.contact-pill:hover{
+  background:rgba(239,231,189,.1);
+  transform:translateY(-1px);
+}
+
+footer{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  margin-top:30px;
+  padding:12px 10px 0;
+  font-size:11px;
+  color:rgba(239,231,189,.58);
+  letter-spacing:.05em;
+}
+
+@media(max-width:650px){
+  .page{padding:10px 10px 38px}
+  .hero{padding-bottom:22px}
+  .menu-flow:before{width:112px}
+  .menu-item{
+    min-height:220px;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
   }
+  .food-visual{
+    width:118px;
+    height:118px;
+    border-width:5px;
+  }
+  .item-copy{padding:12px 7px}
+  .item-title{font-size:28px}
+  .item-desc{font-size:12px}
+  .price{font-size:11px}
+  .category{font-size:7px}
+  .connect{margin-top:28px}
+}
+
+@media(max-width:390px){
+  .menu-flow:before{width:92px}
+  .menu-item{gap:0}
+  .food-visual{width:100px;height:100px}
+  .item-title{font-size:24px}
+  .item-desc{font-size:11px}
+}
 </style>
 </head>
+
 <body>
+<div class="page">
 
-<header>
-  <svg class="lotus" viewBox="0 0 120 100">
-    <g>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-42 60 96)"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-21 60 96)"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(21 60 96)"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(42 60 96)"/>
-    </g>
+<header class="hero">
+  <div class="brand-top">Prashadam Restaurant</div>
+
+  <svg class="lotus" viewBox="0 0 120 100" aria-hidden="true">
+    <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-42 60 96)"/>
+    <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-21 60 96)"/>
+    <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"/>
+    <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(21 60 96)"/>
+    <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(42 60 96)"/>
   </svg>
-  <div class="brand">प्रसादम</div>
-  <div class="brand-sub">कैफे</div>
-  <div class="pure-veg">PURE<br>VEG</div>
 
-  <p class="welcome-line">आपका शुभागमन है। यह भोजन ऐसी ही खुशियाँ लाये है — निष्ठान से बना, प्रसाद के भाव से परोसा गया।</p>
-  <svg class="wave" viewBox="0 0 120 20"><path d="M2,10 Q30,-4 60,10 T118,10"/></svg>
+  <h1>OUR MENU</h1>
+  <h2>Pure Vegetarian</h2>
+  <div class="pure-veg">PURE<br>VEG</div>
 </header>
 
-<div class="blessing-wrap">
-  <div class="blessing-box">
-    <p>पूज्य श्री नरसिंहदास जी महाराज</p>
-    <p>श्री राम मंदिर, मांडवगढ़ के आशीर्वाद से</p>
-    <div class="small">EDIT THIS TEXT TO MATCH YOUR EXACT AFFILIATION WORDING</div>
-  </div>
-</div>
+<main class="menu-flow">
 
-<main>
-
-  <details class="menu-card" open>
-    <summary>Chaat &amp; Starters <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Aloo Tikki Chaat</div><div class="item-desc">Crisp potato patties, tangy tamarind &amp; mint chutney, whisked curd, pomegranate</div></div>
-        <div class="item-price">₹110</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag spicy"></span>Masala Papad</div><div class="item-desc">Roasted lentil wafer, onion, tomato, coriander, chaat masala</div></div>
-        <div class="item-price">₹60</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Sabudana Vada</div><div class="item-desc">Sago &amp; peanut fritters, coconut chutney</div></div>
-        <div class="item-price">₹95</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag spicy"></span>Kachori with Aloo Sabzi</div><div class="item-desc">Flaky lentil-stuffed kachori, spiced potato curry</div></div>
-        <div class="item-price">₹90</div>
-      </div>
+  <section class="menu-item">
+    <div class="item-copy">
+      <div class="category">Chaat · Starter</div>
+      <h3 class="item-title">Aloo Tikki Chaat</h3>
+      <p class="item-desc">Crisp potato patties with mint chutney, tamarind, curd and pomegranate.</p>
+      <span class="price">₹110</span>
     </div>
-  </details>
+    <div class="food-visual visual-1" aria-label="Food illustration"></div>
+  </section>
 
-  <details class="menu-card">
-    <summary>South Indian <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Ghee Podi Dosa</div><div class="item-desc">Crisp rice crepe, roasted lentil chutney powder, ghee, sambar &amp; coconut chutney</div></div>
-        <div class="item-price">₹140</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Idli Sambar (4 pc)</div><div class="item-desc">Steamed rice cakes, drumstick sambar, coconut &amp; tomato chutney</div></div>
-        <div class="item-price">₹100</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Curd Rice</div><div class="item-desc">Cooling rice, curry leaf, mustard, ginger, pomegranate</div></div>
-        <div class="item-price">₹90</div>
-      </div>
+  <section class="menu-item">
+    <div class="item-copy">
+      <div class="category">South Indian</div>
+      <h3 class="item-title">Ghee Podi Dosa</h3>
+      <p class="item-desc">Crisp dosa with roasted podi, ghee, sambar and coconut chutney.</p>
+      <span class="price">₹140</span>
     </div>
-  </details>
+    <div class="food-visual visual-2" aria-label="Food illustration"></div>
+  </section>
 
-  <details class="menu-card">
-    <summary>North Indian Thali <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Satvik Thali</div><div class="item-desc">Dal tadka, seasonal sabzi, paneer curry, jeera rice, roti, salad, papad, kheer</div></div>
-        <div class="item-price">₹260</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Simple Thali</div><div class="item-desc">Dal, one sabzi, roti, rice, curd, pickle</div></div>
-        <div class="item-price">₹170</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Paneer Butter Masala</div><div class="item-desc">Cottage cheese in mild tomato-cashew gravy, with 2 rotis</div></div>
-        <div class="item-price">₹190</div>
-      </div>
+  <section class="menu-item">
+    <div class="item-copy">
+      <div class="category">Thali</div>
+      <h3 class="item-title">Satvik Thali</h3>
+      <p class="item-desc">Dal, seasonal sabzi, paneer curry, jeera rice, roti, salad, papad and kheer.</p>
+      <span class="price">₹260</span>
     </div>
-  </details>
+    <div class="food-visual visual-3" aria-label="Food illustration"></div>
+  </section>
 
-  <details class="menu-card">
-    <summary>Mithai · Sweets <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Kesar Peda</div><div class="item-desc">Milk fudge, saffron, cardamom (2 pc)</div></div>
-        <div class="item-price">₹70</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Gajar Halwa</div><div class="item-desc">Slow-cooked carrot &amp; milk, ghee-roasted nuts, served warm</div></div>
-        <div class="item-price">₹110</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Rabri Malpua</div><div class="item-desc">Sweet fried pancake soaked in syrup, thickened milk</div></div>
-        <div class="item-price">₹120</div>
-      </div>
+  <section class="menu-item">
+    <div class="item-copy">
+      <div class="category">Dessert</div>
+      <h3 class="item-title">Gajar Halwa</h3>
+      <p class="item-desc">Slow-cooked carrot and milk dessert with ghee-roasted nuts.</p>
+      <span class="price">₹110</span>
     </div>
-  </details>
+    <div class="food-visual visual-4" aria-label="Food illustration"></div>
+  </section>
 
-  <details class="menu-card">
-    <summary>Beverages <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Masala Chai</div><div class="item-desc">Hand-ground spices, simmered slow</div></div>
-        <div class="item-price">₹40</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Filter Coffee</div><div class="item-desc">South Indian style, frothed by hand</div></div>
-        <div class="item-price">₹50</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Sweet Lassi</div><div class="item-desc">Whisked curd, sugar, a touch of rosewater</div></div>
-        <div class="item-price">₹80</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Buttermilk (Chaas)</div><div class="item-desc">Spiced, tempered with curry leaf &amp; cumin</div></div>
-        <div class="item-price">₹45</div>
-      </div>
+  <section class="menu-item">
+    <div class="item-copy">
+      <div class="category">Beverage</div>
+      <h3 class="item-title">Filter Coffee</h3>
+      <p class="item-desc">South Indian style filter coffee, freshly brewed and frothed.</p>
+      <span class="price">₹50</span>
     </div>
-  </details>
+    <div class="food-visual visual-5" aria-label="Food illustration"></div>
+  </section>
 
   <div class="legend">
-    <span><span class="tag"></span> Mild / Sattvic</span>
-    <span><span class="tag spicy"></span> Spicy</span>
+    <strong>Pure Vegetarian</strong> · Menu-only website · No online ordering
   </div>
 
-  <div class="connect-section">
-    <div class="connect-heading">Scan for the full menu</div>
-    <div class="connect-sub">Order online &amp; view today's prashadam</div>
-    <div class="thali-ring">
+  <section class="connect">
+    <h3>SCAN FOR MENU</h3>
+    <p>View the Prashadam Restaurant menu on your phone</p>
+
+    <div class="qr-shell">
       <div id="qrcode"></div>
     </div>
 
     <div class="contact-list">
-      <a class="contact-pill" href="tel:+918770481315"><span class="icon">📞</span> 87704 81315</a>
-      <a class="contact-pill" href="https://maps.app.goo.gl/mwsVTXcDZKsQbiFUA" target="_blank" rel="noopener"><span class="icon">📍</span> Find us on Google Maps</a>
-      <a class="contact-pill" href="https://instagram.com/infiniteapparels_" target="_blank" rel="noopener"><span class="icon">📷</span> @infiniteapparels_</a>
+      <a class="contact-pill" href="tel:+918770481315">📞 87704 81315</a>
+      <a class="contact-pill" href="https://maps.app.goo.gl/FZ1KXrSDHpJsM4Ri8" target="_blank" rel="noopener">📍 Google Maps</a>
     </div>
-  </div>
-
+  </section>
 </main>
 
 <footer>
-  Prashadam Cafe · Open daily, 8am – 9:30pm · Pure vegetarian, no onion-garlic option available on request
+  Prashadam Restaurant · Pure Vegetarian
 </footer>
 
+</div>
+
 <script>
-  // ==== EDIT THIS: set the link your QR code should open ====
-  const MENU_URL = "https://indogermseeds-ctrl.github.io/menu/";
-  // ============================================================
-  new QRCode(document.getElementById("qrcode"), {
-    text: MENU_URL,
-    width: 140,
-    height: 140,
-    colorDark: "#8E0E4E",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.M
-  });
+const MENU_URL = "https://indogermseeds-ctrl.github.io/menu/";
+
+new QRCode(document.getElementById("qrcode"), {
+  text: MENU_URL,
+  width: 146,
+  height: 146,
+  colorDark: "#073f31",
+  colorLight: "#efe7bd",
+  correctLevel: QRCode.CorrectLevel.M
+});
 </script>
 
 </body>
