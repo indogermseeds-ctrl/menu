@@ -1,443 +1,1242 @@
 <!DOCTYPE html>
-
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>प्रसादम कैफे — Menu</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Hind:wght@400;500;600&family=Spectral:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<style>
-  :root{
-    --cream: #FBF1DE;
-    --cream-deep: #F1E1BC;
-    --brown: #6B4226;
-    --brown-soft: #8B5A2B;
-    --magenta: #C2136B;
-    --magenta-deep: #8E0E4E;
-    --gold: #C99A3D;
-    --leaf: #2E7D32;
-    --ink: #2B1810;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--cream);
-    background-image:radial-gradient(circle at 10% 8%, rgba(194,19,107,0.05) 0, transparent 38%),
-                      radial-gradient(circle at 90% 90%, rgba(107,66,38,0.06) 0, transparent 42%);
-    color:var(--ink);
-    font-family:'Hind', sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* ---------- Hero / Logo ---------- */
-header{
-text-align;
-padding:44px 20px 28px;
-}
-.lotus{width:74px; height:62px; margin:0 auto 4px;}
-.lotus path{fill; stroke(--magenta); stroke-width:2.6; stroke-linecap;}
-.brand{
-font-family:'Baloo 2', sans-serif;
-font-weight:800;
-font-size(40px,9vw,60px);
-color(--magenta);
-line-height:1;
-letter-spacing:0.01em;
-}
-.brand-sub{
-font-family:'Baloo 2', sans-serif;
-font-weight:600;
-font-size(20px,4.5vw,28px);
-color(--magenta-deep);
-margin-top:-4px;
-}
-.pure-veg{
-display;
-align-items;
-justify-content;
-flex-direction;
-width:44px; height:44px;
-border-radius:50%;
-background(--leaf);
-color:#fff;
-font-family:'Space Mono', monospace;
-font-size:8px;
-line-height:1.15;
-font-weight:700;
-letter-spacing:0.02em;
-margin-top:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.18);
-}
-.welcome-line{
-margin-top:22px;
-font-size:15px;
-color:#5c3a2b;
-max-width:420px;
-margin-left; margin-right;
-}
-.wave{
-width:120px; height:20px;
-margin:14px auto 0;
-opacity:0.5;
-}
-.wave path{fill; stroke(--brown); stroke-width:1.5;}
+  <title>प्रसादम कैफे — Menu</title>
 
-/* ---------- Blessing box (temple affiliation) ---------- */
-.blessing-wrap{
-max-width:520px;
-margin:26px auto 0;
-padding:0 20px;
-}
-.blessing-box{
-border:1.5px solid var(--brown-soft);
-border-radius:10px;
-padding:14px 18px;
-text-align;
-position;
-background(255,255,255,0.35);
-}
-.blessing-box::before{
-content:'';
-position;
-inset:4px;
-border:1px solid var(--gold);
-border-radius:7px;
-pointer-events;
-}
-.blessing-box p{
-margin:3px 0;
-font-size:15px;
-color(--brown);
-font-weight:500;
-}
-.blessing-box .small{
-font-size:11px;
-color(--brown-soft);
-font-family:'Space Mono',monospace;
-letter-spacing:0.08em;
-margin-top:6px;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Hind:wght@400;500;600&family=Spectral:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 
-main{
-max-width:820px;
-margin:0 auto;
-padding:38px 20px 20px;
-}
+  <style>
+    :root {
+      --bg: #f7efe3;
+      --bg-light: #fffaf3;
 
-/* ---------- Menu accordion cards ---------- */
-.menu-card{
-border:1.5px solid var(--brown-soft);
-border-radius:12px;
-margin-bottom:16px;
-background(255,255,255,0.4);
-overflow;
-position;
-}
-.menu-card::before{
-content:'';
-position;
-inset:3px;
-border:1px solid var(--gold);
-border-radius:9px;
-pointer-events;
-}
-.menu-card summary{
-list-style;
-cursor;
-padding:16px 20px;
-display;
-align-items;
-justify-content;
-font-family:'Baloo 2', sans-serif;
-font-weight:600;
-font-size:19px;
-color(--magenta-deep);
-}
-.menu-card summary::-webkit-details-marker{display;}
-.menu-card summary .arrow{
-font-family:'Space Mono',monospace;
-font-size:14px;
-color(--brown-soft);
-transition 0.25s ease;
-}
-.menu-card[open] summary .arrow{transform(180deg);}
-.menu-card .body{
-padding:0 20px 16px;
-}
+      --card: rgba(255,255,255,0.62);
+      --card-hover: rgba(255,255,255,0.78);
 
-.item{
-display;
-justify-content;
-align-items;
-gap:14px;
-padding:11px 0;
-border-bottom:1px dotted rgba(43,24,16,0.16);
-font-family:'Spectral', serif;
-}
-.item{border-bottom;}
-.item-name{font-weight:600; font-size:16.5px; color(--ink);}
-.tag{
-display;
-width:9px; height:9px;
-border-radius:50%;
-border:1.5px solid var(--leaf);
-margin-right:8px;
-vertical-align;
-position; top:-1px;
-}
-.tag.spicy{border-color(--magenta); background(--magenta);}
-.item-desc{font-size:13px; color:#6b5240; margin-top:3px; max-width:520px;}
-.item-price{font-family:'Space Mono', monospace; font-size:14.5px; color(--magenta-deep); white-space;}
+      --brown: #5a351f;
+      --brown-light: #806049;
 
-.legend{
-display; gap:18px; flex-wrap;
-font-size:12px; color:#6b5240;
-margin:6px 4px 0;
-}
-.legend span{display; align-items; gap:6px;}
+      --maroon: #7f1d3f;
+      --maroon-dark: #64142f;
 
-/* ---------- QR + Contact ---------- */
-.connect-section{
-margin-top:46px;
-padding:40px 20px 44px;
-background(--magenta-deep);
-border-radius:14px;
-text-align;
-}
-.connect-heading{
-font-family:'Baloo 2', sans-serif;
-color(--cream);
-font-weight:700;
-font-size:24px;
-margin-bottom:4px;
-}
-.connect-sub{
-color:#f0c9dd;
-font-size:13px;
-margin-bottom:24px;
-}
-.thali-ring{
-width:176px; height:176px;
-margin:0 auto;
-border-radius:50%;
-background(circle, #fff 0%, #fff 62%, var(--gold) 63% 72%, var(--magenta) 73% 78%, var(--gold) 79% 100%);
-display; align-items; justify-content;
-padding:13px;
-box-shadow:0 8px 26px rgba(0,0,0,0.3);
-}
-#qrcode{width:140px; height:140px;}
-#qrcode img{display; width:140px !important; height:140px !important;}
+      --gold: #c99a3d;
 
-.contact-list{
-margin-top:28px;
-display;
-flex-direction;
-gap:12px;
-align-items;
-}
-.contact-pill{
-display;
-align-items;
-gap:10px;
-background(255,255,255,0.12);
-border:1px solid rgba(255,255,255,0.35);
-color(--cream);
-text-decoration;
-font-family:'Hind', sans-serif;
-font-size:14.5px;
-font-weight:500;
-padding:10px 20px;
-border-radius:30px;
-transition 0.2s ease;
-min-width:230px;
-justify-content;
-}
-.contact-pill{background(255,255,255,0.22);}
-.contact-pill .icon{font-size:16px;}
+      --green: #2e7d32;
 
-footer{
-text-align;
-padding:26px 20px 40px;
-font-size:12px;
-color:#8a725f;
-letter-spacing:0.03em;
-}
+      --text: #24170f;
 
-@media (max-width:480px){
-.item{flex-direction; gap:2px;}
-}
-</style>
+      --border: rgba(90,53,31,0.13);
 
+      --shadow:
+        0 14px 40px rgba(77,48,28,0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+
+      background:
+        radial-gradient(
+          circle at 8% 0%,
+          rgba(201,154,61,0.14),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 100% 18%,
+          rgba(127,29,63,0.09),
+          transparent 32%
+        ),
+        linear-gradient(
+          180deg,
+          var(--bg-light),
+          var(--bg)
+        );
+
+      color: var(--text);
+
+      font-family: 'Hind', sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle background texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: 0.22;
+
+      background-image:
+        radial-gradient(
+          rgba(90,53,31,0.12) 0.6px,
+          transparent 0.6px
+        );
+
+      background-size: 10px 10px;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      text-align: center;
+
+      padding: 38px 18px 26px;
+
+      max-width: 760px;
+
+      margin: auto;
+    }
+
+    .lotus {
+      width: 66px;
+      height: 56px;
+
+      margin: 0 auto 8px;
+    }
+
+    .lotus path {
+      fill: none;
+
+      stroke: var(--maroon);
+
+      stroke-width: 2.4;
+
+      stroke-linecap: round;
+    }
+
+    .brand {
+      font-family: 'Baloo 2', sans-serif;
+
+      font-weight: 800;
+
+      font-size: clamp(42px, 11vw, 64px);
+
+      color: var(--maroon);
+
+      line-height: 0.95;
+
+      letter-spacing: 0.01em;
+
+      text-shadow:
+        0 4px 18px rgba(127,29,63,0.10);
+    }
+
+    .brand-sub {
+      font-family: 'Baloo 2', sans-serif;
+
+      font-weight: 600;
+
+      font-size: clamp(19px, 4.5vw, 28px);
+
+      color: var(--brown);
+
+      margin-top: 3px;
+    }
+
+    /* Pure Veg Badge */
+
+    .pure-veg {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+
+      margin: 13px auto 0;
+
+      background:
+        linear-gradient(
+          145deg,
+          #39853d,
+          #236628
+        );
+
+      color: white;
+
+      font-family: 'Space Mono', monospace;
+
+      font-size: 8px;
+
+      line-height: 1.1;
+
+      font-weight: 700;
+
+      border: 3px solid rgba(255,255,255,0.85);
+
+      box-shadow:
+        0 7px 18px rgba(46,125,50,0.22);
+    }
+
+    .welcome-line {
+      margin: 22px auto 0;
+
+      max-width: 520px;
+
+      font-size: 15px;
+
+      line-height: 1.7;
+
+      color: #6b4a35;
+    }
+
+    .wave {
+      width: 110px;
+      height: 18px;
+
+      margin: 10px auto 0;
+
+      opacity: 0.55;
+    }
+
+    .wave path {
+      fill: none;
+
+      stroke: var(--gold);
+
+      stroke-width: 1.6;
+    }
+
+    /* =========================
+       MAIN
+    ========================== */
+
+    main {
+      max-width: 820px;
+
+      margin: 0 auto;
+
+      padding: 14px 16px 30px;
+    }
+
+    /* =========================
+       CATEGORY CARDS
+       NO ARROWS
+       NO DROPDOWN
+    ========================== */
+
+    .menu-card {
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      margin-bottom: 16px;
+
+      background: var(--card);
+
+      backdrop-filter: blur(14px);
+
+      -webkit-backdrop-filter: blur(14px);
+
+      box-shadow: var(--shadow);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-2px);
+
+      background: var(--card-hover);
+
+      box-shadow:
+        0 18px 45px rgba(77,48,28,0.14);
+    }
+
+    /* Category title */
+
+    .category-title {
+      padding: 18px 18px 13px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      font-family: 'Baloo 2', sans-serif;
+
+      font-weight: 700;
+
+      font-size: 20px;
+
+      color: var(--maroon);
+
+      border-bottom: 1px solid rgba(90,53,31,0.08);
+    }
+
+    .category-icon {
+      width: 34px;
+      height: 34px;
+
+      border-radius: 11px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        rgba(127,29,63,0.08);
+
+      font-size: 17px;
+    }
+
+    .menu-body {
+      padding: 0 18px 10px;
+    }
+
+    /* =========================
+       FOOD ITEMS
+    ========================== */
+
+    .item {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: flex-start;
+
+      gap: 14px;
+
+      padding: 15px 0;
+
+      border-top:
+        1px solid rgba(90,53,31,0.09);
+
+      font-family: 'Spectral', serif;
+    }
+
+    .item:first-child {
+      border-top: 0;
+    }
+
+    .item-name {
+      font-weight: 600;
+
+      font-size: 16.5px;
+
+      color: var(--text);
+
+      line-height: 1.35;
+    }
+
+    .tag {
+      display: inline-block;
+
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      border:
+        1.5px solid var(--green);
+
+      margin-right: 8px;
+
+      vertical-align: 1px;
+    }
+
+    .tag.spicy {
+      border-color: var(--maroon);
+
+      background: var(--maroon);
+    }
+
+    .item-desc {
+      font-size: 12.8px;
+
+      line-height: 1.5;
+
+      color: #7a604d;
+
+      margin-top: 4px;
+
+      max-width: 560px;
+    }
+
+    .item-price {
+      font-family: 'Space Mono', monospace;
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      color: var(--maroon);
+
+      white-space: nowrap;
+
+      background:
+        rgba(127,29,63,0.07);
+
+      padding: 6px 9px;
+
+      border-radius: 10px;
+    }
+
+    /* =========================
+       LEGEND
+    ========================== */
+
+    .legend {
+      display: flex;
+
+      gap: 16px;
+
+      flex-wrap: wrap;
+
+      font-size: 12px;
+
+      color: #6b5240;
+
+      margin: 5px 4px 20px;
+    }
+
+    .legend span {
+      display: flex;
+
+      align-items: center;
+
+      gap: 6px;
+    }
+
+    /* =========================
+       LOCATION SECTION
+    ========================== */
+
+    .location-section {
+      margin-top: 28px;
+
+      padding: 32px 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #681832,
+          #8e254d
+        );
+
+      border-radius: 24px;
+
+      text-align: center;
+
+      box-shadow:
+        0 18px 45px rgba(104,24,50,0.22);
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .location-section::before {
+      content: "";
+
+      position: absolute;
+
+      width: 220px;
+      height: 220px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.07);
+
+      right: -100px;
+
+      top: -120px;
+    }
+
+    .location-section::after {
+      content: "";
+
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.05);
+
+      left: -90px;
+
+      bottom: -90px;
+    }
+
+    .location-icon {
+      width: 62px;
+      height: 62px;
+
+      margin: 0 auto 13px;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        rgba(255,255,255,0.14);
+
+      border:
+        1px solid rgba(255,255,255,0.25);
+
+      font-size: 28px;
+
+      position: relative;
+
+      z-index: 1;
+    }
+
+    .location-title {
+      font-family: 'Baloo 2', sans-serif;
+
+      color: #fff5e8;
+
+      font-weight: 700;
+
+      font-size: 26px;
+
+      margin: 0;
+
+      position: relative;
+
+      z-index: 1;
+    }
+
+    .location-text {
+      color: #f3d9df;
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      margin: 5px auto 20px;
+
+      max-width: 360px;
+
+      position: relative;
+
+      z-index: 1;
+    }
+
+    .location-button {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 9px;
+
+      background: white;
+
+      color: var(--maroon);
+
+      text-decoration: none;
+
+      font-family: 'Hind', sans-serif;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      padding: 13px 23px;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.18);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+      position: relative;
+
+      z-index: 1;
+    }
+
+    .location-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 12px 25px rgba(0,0,0,0.22);
+    }
+
+    .location-button:active {
+      transform: translateY(0);
+    }
+
+    /* =========================
+       PHONE
+    ========================== */
+
+    .phone-button {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 9px;
+
+      margin: 12px auto 0;
+
+      width: min(100%, 310px);
+
+      padding: 12px 18px;
+
+      border-radius: 14px;
+
+      border:
+        1px solid rgba(255,255,255,0.22);
+
+      background:
+        rgba(255,255,255,0.12);
+
+      color: #fff8ee;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      transition: 0.2s ease;
+
+      position: relative;
+
+      z-index: 1;
+    }
+
+    .phone-button:hover {
+      background:
+        rgba(255,255,255,0.2);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      text-align: center;
+
+      padding: 24px 18px 34px;
+
+      font-size: 11.5px;
+
+      color: #8a725f;
+
+      line-height: 1.6;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 480px) {
+
+      header {
+        padding-top: 28px;
+      }
+
+      main {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .category-title {
+        padding: 17px 15px 13px;
+
+        font-size: 18px;
+      }
+
+      .menu-body {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .item {
+        gap: 9px;
+      }
+
+      .item-name {
+        font-size: 15.5px;
+      }
+
+      .item-desc {
+        font-size: 12.3px;
+      }
+
+      .item-price {
+        font-size: 12.5px;
+
+        padding: 5px 7px;
+      }
+
+      .location-title {
+        font-size: 23px;
+      }
+
+      .location-section {
+        padding: 28px 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <svg class="lotus" viewBox="0 0 120 100">
-    <g>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-42 60 96)"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-21 60 96)"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(21 60 96)"/>
-      <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(42 60 96)"/>
-    </g>
-  </svg>
-  <div class="brand">प्रसादम</div>
-  <div class="brand-sub">कैफे</div>
-  <div class="pure-veg">PURE<br>VEG</div>
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-  <p class="welcome-line">आपका शुभागमन है। यह भोजन ऐसी ही खुशियाँ लाये है — निष्ठान से बना, प्रसाद के भाव से परोसा गया।</p>
-  <svg class="wave" viewBox="0 0 120 20"><path d="M2,10 Q30,-4 60,10 T118,10"/></svg>
-</header>
+  <header>
 
-<div class="blessing-wrap">
-  <div class="blessing-box">
-    <p>पूज्य श्री नरसिंहदास जी महाराज</p>
-    <p>श्री राम मंदिर, मांडवगढ़ के आशीर्वाद से</p>
-    <div class="small">EDIT THIS TEXT TO MATCH YOUR EXACT AFFILIATION WORDING</div>
-  </div>
-</div>
+    <svg class="lotus" viewBox="0 0 120 100">
+      <g>
+        <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"
+              transform="rotate(-42 60 96)"/>
 
-<main>
+        <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"
+              transform="rotate(-21 60 96)"/>
 
-  <details class="menu-card" open>
-    <summary>Chaat &amp; Starters <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Aloo Tikki Chaat</div><div class="item-desc">Crisp potato patties, tangy tamarind &amp; mint chutney, whisked curd, pomegranate</div></div>
-        <div class="item-price">₹110</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag spicy"></span>Masala Papad</div><div class="item-desc">Roasted lentil wafer, onion, tomato, coriander, chaat masala</div></div>
-        <div class="item-price">₹60</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Sabudana Vada</div><div class="item-desc">Sago &amp; peanut fritters, coconut chutney</div></div>
-        <div class="item-price">₹95</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag spicy"></span>Kachori with Aloo Sabzi</div><div class="item-desc">Flaky lentil-stuffed kachori, spiced potato curry</div></div>
-        <div class="item-price">₹90</div>
-      </div>
-    </div>
-  </details>
+        <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"/>
 
-  <details class="menu-card">
-    <summary>South Indian <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Ghee Podi Dosa</div><div class="item-desc">Crisp rice crepe, roasted lentil chutney powder, ghee, sambar &amp; coconut chutney</div></div>
-        <div class="item-price">₹140</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Idli Sambar (4 pc)</div><div class="item-desc">Steamed rice cakes, drumstick sambar, coconut &amp; tomato chutney</div></div>
-        <div class="item-price">₹100</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Curd Rice</div><div class="item-desc">Cooling rice, curry leaf, mustard, ginger, pomegranate</div></div>
-        <div class="item-price">₹90</div>
-      </div>
-    </div>
-  </details>
+        <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"
+              transform="rotate(21 60 96)"/>
 
-  <details class="menu-card">
-    <summary>North Indian Thali <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Satvik Thali</div><div class="item-desc">Dal tadka, seasonal sabzi, paneer curry, jeera rice, roti, salad, papad, kheer</div></div>
-        <div class="item-price">₹260</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Simple Thali</div><div class="item-desc">Dal, one sabzi, roti, rice, curd, pickle</div></div>
-        <div class="item-price">₹170</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Paneer Butter Masala</div><div class="item-desc">Cottage cheese in mild tomato-cashew gravy, with 2 rotis</div></div>
-        <div class="item-price">₹190</div>
-      </div>
-    </div>
-  </details>
+        <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"
+              transform="rotate(42 60 96)"/>
+      </g>
+    </svg>
 
-  <details class="menu-card">
-    <summary>Mithai · Sweets <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Kesar Peda</div><div class="item-desc">Milk fudge, saffron, cardamom (2 pc)</div></div>
-        <div class="item-price">₹70</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Gajar Halwa</div><div class="item-desc">Slow-cooked carrot &amp; milk, ghee-roasted nuts, served warm</div></div>
-        <div class="item-price">₹110</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Rabri Malpua</div><div class="item-desc">Sweet fried pancake soaked in syrup, thickened milk</div></div>
-        <div class="item-price">₹120</div>
-      </div>
-    </div>
-  </details>
-
-  <details class="menu-card">
-    <summary>Beverages <span class="arrow">▾</span></summary>
-    <div class="body">
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Masala Chai</div><div class="item-desc">Hand-ground spices, simmered slow</div></div>
-        <div class="item-price">₹40</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Filter Coffee</div><div class="item-desc">South Indian style, frothed by hand</div></div>
-        <div class="item-price">₹50</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Sweet Lassi</div><div class="item-desc">Whisked curd, sugar, a touch of rosewater</div></div>
-        <div class="item-price">₹80</div>
-      </div>
-      <div class="item">
-        <div><div class="item-name"><span class="tag"></span>Buttermilk (Chaas)</div><div class="item-desc">Spiced, tempered with curry leaf &amp; cumin</div></div>
-        <div class="item-price">₹45</div>
-      </div>
-    </div>
-  </details>
-
-  <div class="legend">
-    <span><span class="tag"></span> Mild / Sattvic</span>
-    <span><span class="tag spicy"></span> Spicy</span>
-  </div>
-
-  <div class="connect-section">
-    <div class="connect-heading">Scan for the full menu</div>
-    <div class="connect-sub">Order online &amp; view today's prashadam</div>
-    <div class="thali-ring">
-      <div id="qrcode"></div>
+    <div class="brand">
+      प्रसादम
     </div>
 
-<div class="contact-list">
-  <a class="contact-pill" href="tel:+918770481315"><span class="icon">📞</span> 87704 81315</a>
-  <a class="contact-pill" href="https://maps.app.goo.gl/mwsVTXcDZKsQbiFUA" target="_blank" rel="noopener"><span class="icon">📍</span> Find us on Google Maps</a>
-  <a class="contact-pill" href="https://instagram.com/infiniteapparels_" target="_blank" rel="noopener"><span class="icon">📷</span> @infiniteapparels_</a>
-</div>
+    <div class="brand-sub">
+      कैफे
+    </div>
 
-  </div>
+    <div class="pure-veg">
+      PURE<br>
+      VEG
+    </div>
 
-</main>
+    <p class="welcome-line">
+      आपका शुभागमन है। यह भोजन ऐसी ही खुशियाँ लाये है —
+      निष्ठा से बना, प्रसाद के भाव से परोसा गया।
+    </p>
 
-<footer>
-  Prashadam Cafe · Open daily, 8am – 9:30pm · Pure vegetarian, no onion-garlic option available on request
-</footer>
+    <svg class="wave" viewBox="0 0 120 20">
+      <path d="M2,10 Q30,-4 60,10 T118,10"/>
+    </svg>
 
-<script>
-  // ==== EDIT THIS: set the link your QR code should open ====
-  const MENU_URL = "https://prashadamcafe.com/menu";
-  // ============================================================
-  new QRCode(document.getElementById("qrcode"), {
-    text: MENU_URL,
-    width: 140,
-    height: 140,
-    colorDark: "#8E0E4E",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.M
-  });
-</script>
+  </header>
+
+
+  <!-- =========================
+       MENU
+  ========================== -->
+
+  <main>
+
+
+    <!-- CHAAT -->
+
+    <section class="menu-card">
+
+      <div class="category-title">
+        <span class="category-icon">🥗</span>
+        Chaat & Starters
+      </div>
+
+      <div class="menu-body">
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Aloo Tikki Chaat
+            </div>
+
+            <div class="item-desc">
+              Crisp potato patties, tangy tamarind & mint chutney,
+              whisked curd, pomegranate
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹110
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag spicy"></span>
+              Masala Papad
+            </div>
+
+            <div class="item-desc">
+              Roasted lentil wafer, onion, tomato,
+              coriander, chaat masala
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹60
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Sabudana Vada
+            </div>
+
+            <div class="item-desc">
+              Sago & peanut fritters, coconut chutney
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹95
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag spicy"></span>
+              Kachori with Aloo Sabzi
+            </div>
+
+            <div class="item-desc">
+              Flaky lentil-stuffed kachori,
+              spiced potato curry
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹90
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SOUTH INDIAN -->
+
+    <section class="menu-card">
+
+      <div class="category-title">
+        <span class="category-icon">🥘</span>
+        South Indian
+      </div>
+
+      <div class="menu-body">
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Ghee Podi Dosa
+            </div>
+
+            <div class="item-desc">
+              Crisp rice crepe, roasted lentil chutney powder,
+              ghee, sambar & coconut chutney
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹140
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Idli Sambar (4 pc)
+            </div>
+
+            <div class="item-desc">
+              Steamed rice cakes, drumstick sambar,
+              coconut & tomato chutney
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹100
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Curd Rice
+            </div>
+
+            <div class="item-desc">
+              Cooling rice, curry leaf, mustard,
+              ginger, pomegranate
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹90
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- NORTH INDIAN -->
+
+    <section class="menu-card">
+
+      <div class="category-title">
+        <span class="category-icon">🍛</span>
+        North Indian Thali
+      </div>
+
+      <div class="menu-body">
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Satvik Thali
+            </div>
+
+            <div class="item-desc">
+              Dal tadka, seasonal sabzi, paneer curry,
+              jeera rice, roti, salad, papad, kheer
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹260
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Simple Thali
+            </div>
+
+            <div class="item-desc">
+              Dal, one sabzi, roti, rice,
+              curd, pickle
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹170
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Paneer Butter Masala
+            </div>
+
+            <div class="item-desc">
+              Cottage cheese in mild tomato-cashew gravy,
+              with 2 rotis
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹190
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SWEETS -->
+
+    <section class="menu-card">
+
+      <div class="category-title">
+        <span class="category-icon">🍮</span>
+        Mithai · Sweets
+      </div>
+
+      <div class="menu-body">
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Kesar Peda
+            </div>
+
+            <div class="item-desc">
+              Milk fudge, saffron, cardamom (2 pc)
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹70
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Gajar Halwa
+            </div>
+
+            <div class="item-desc">
+              Slow-cooked carrot & milk,
+              ghee-roasted nuts, served warm
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹110
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Rabri Malpua
+            </div>
+
+            <div class="item-desc">
+              Sweet fried pancake soaked in syrup,
+              thickened milk
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹120
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- BEVERAGES -->
+
+    <section class="menu-card">
+
+      <div class="category-title">
+        <span class="category-icon">☕</span>
+        Beverages
+      </div>
+
+      <div class="menu-body">
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Masala Chai
+            </div>
+
+            <div class="item-desc">
+              Hand-ground spices, simmered slow
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹40
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Filter Coffee
+            </div>
+
+            <div class="item-desc">
+              South Indian style, frothed by hand
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹50
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Sweet Lassi
+            </div>
+
+            <div class="item-desc">
+              Whisked curd, sugar,
+              a touch of rosewater
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹80
+          </div>
+        </div>
+
+
+        <div class="item">
+          <div>
+            <div class="item-name">
+              <span class="tag"></span>
+              Buttermilk (Chaas)
+            </div>
+
+            <div class="item-desc">
+              Spiced, tempered with curry leaf & cumin
+            </div>
+          </div>
+
+          <div class="item-price">
+            ₹45
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- LEGEND -->
+
+    <div class="legend">
+
+      <span>
+        <span class="tag"></span>
+        Mild / Sattvic
+      </span>
+
+      <span>
+        <span class="tag spicy"></span>
+        Spicy
+      </span>
+
+    </div>
+
+
+    <!-- =========================
+         LOCATION
+         QR CODE REMOVED
+    ========================== -->
+
+    <section class="location-section">
+
+      <div class="location-icon">
+        📍
+      </div>
+
+      <h2 class="location-title">
+        Visit Prashadam Cafe
+      </h2>
+
+      <p class="location-text">
+        अपने नज़दीकी Prashadam Cafe तक पहुँचने के लिए
+        Google Maps पर location देखें।
+      </p>
+
+
+      <!-- GOOGLE MAPS LINK -->
+
+      <a
+        class="location-button"
+        href="https://maps.app.goo.gl/FZ1KXrSDHpJsM4Ri8"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📍 View Location on Google Maps
+      </a>
+
+
+      <!-- PHONE -->
+
+      <a
+        class="phone-button"
+        href="tel:+918770481315"
+      >
+        📞 87704 81315
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    Prashadam Cafe · Pure vegetarian
+
+    <br>
+
+    No onion-garlic option available on request
+
+  </footer>
 
 </body>
 </html>
