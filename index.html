@@ -13,382 +13,285 @@
 <style>
 :root{
   --green:#073f31;
-  --green-2:#0b5140;
-  --green-3:#12604c;
+  --green-dark:#052f25;
+  --green-light:#125742;
   --cream:#efe7bd;
-  --cream-2:#f7f0d2;
-  --ink:#17352b;
-  --muted:#cdd9c8;
-  --gold:#d8bf68;
+  --cream-light:#f8f1d3;
+  --gold:#d7bf68;
   --white:#fffdf4;
+  --muted:#d2dac8;
 }
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
 body{
-  margin:0;
   background:var(--green);
   color:var(--cream);
   font-family:'Hind',sans-serif;
   overflow-x:hidden;
 }
-
-/* Subtle editorial texture */
 body:before{
   content:"";
   position:fixed;
   inset:0;
+  opacity:.11;
   pointer-events:none;
-  opacity:.10;
   background-image:
-    radial-gradient(circle at 15% 15%, #fff 0 1px, transparent 1.5px),
-    radial-gradient(circle at 80% 35%, #fff 0 1px, transparent 1.5px),
-    radial-gradient(circle at 35% 80%, #fff 0 1px, transparent 1.5px);
-  background-size:90px 90px,130px 130px,170px 170px;
-  z-index:0;
+    radial-gradient(circle at 10% 20%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 80% 65%,#fff 0 1px,transparent 2px);
+  background-size:100px 100px,145px 145px;
 }
+.page{max-width:920px;margin:auto;padding:16px 14px 44px;position:relative}
 
-.page{
-  position:relative;
-  z-index:1;
-  max-width:900px;
-  margin:auto;
-  padding:18px 16px 50px;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:10px 10px 38px;
-}
-
-.brand-top{
+/* Header */
+.hero{text-align:center;padding:8px 8px 34px}
+.top-name{
   font-family:'Space Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.18em;
   font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--cream);
-  opacity:.85;
+  opacity:.9;
 }
-
-.lotus{
-  width:58px;
-  height:48px;
-  margin:12px auto 0;
-}
-.lotus path{
-  fill:none;
-  stroke:var(--cream);
-  stroke-width:2.8;
-  stroke-linecap:round;
-}
-
+.lotus{width:62px;height:52px;margin:10px auto 0}
+.lotus path{fill:none;stroke:var(--cream);stroke-width:2.8;stroke-linecap:round}
 .hero h1{
-  margin:5px 0 0;
+  margin:4px 0 0;
   font-family:'Baloo 2',sans-serif;
-  font-size:clamp(64px,15vw,132px);
+  font-size:clamp(64px,15vw,126px);
   line-height:.78;
-  letter-spacing:-.045em;
+  font-weight:800;
+  letter-spacing:-.05em;
   color:var(--cream);
-  text-transform:uppercase;
 }
-
-.hero h2{
-  margin:16px 0 0;
+.hero .sub{
+  margin:17px 0 0;
   font-family:'Baloo 2',sans-serif;
-  font-size:clamp(24px,5vw,42px);
+  font-size:clamp(23px,5vw,38px);
+  font-weight:700;
   line-height:1;
-  color:var(--cream);
-  letter-spacing:.02em;
 }
-
 .pure-veg{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:58px;
-  height:58px;
-  margin-top:18px;
+  width:56px;height:56px;margin:17px auto 0;
   border:2px solid var(--cream);
   border-radius:50%;
-  font-family:'Space Mono',monospace;
-  font-size:9px;
-  line-height:1.1;
-  font-weight:700;
-  letter-spacing:.04em;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Space Mono',monospace;font-size:8px;font-weight:700;
+  line-height:1.1;letter-spacing:.03em;
 }
 
-/* Central editorial pattern */
-.menu-flow{
+/* Pattern */
+.menu{
   position:relative;
-  padding:12px 0 20px;
+  padding:4px 0 10px;
 }
-
-.menu-flow:before{
+.menu:before{
   content:"";
   position:absolute;
-  top:0;
-  bottom:0;
-  left:50%;
+  top:0;bottom:0;left:50%;
+  width:184px;
   transform:translateX(-50%);
-  width:190px;
   background:var(--cream);
   clip-path:polygon(
-    0 0,100% 0,100% 5%,72% 9%,72% 16%,100% 20%,
+    0 0,100% 0,100% 5%,72% 8%,72% 16%,100% 19%,
     100% 28%,72% 32%,72% 39%,100% 43%,100% 51%,
-    72% 55%,72% 62%,100% 66%,100% 74%,72% 78%,
-    72% 85%,100% 89%,100% 100%,0 100%,0 89%,
-    28% 85%,28% 78%,0 74%,0 66%,28% 62%,28% 55%,
-    0 51%,0 43%,28% 39%,28% 32%,0 28%,0 20%,
-    28% 16%,28% 9%,0 5%
+    72% 55%,72% 62%,100% 66%,100% 75%,72% 79%,
+    72% 87%,100% 90%,100% 100%,0 100%,0 90%,
+    28% 87%,28% 79%,0 75%,0 66%,28% 62%,28% 55%,
+    0 51%,0 43%,28% 39%,28% 32%,0 28%,0 19%,
+    28% 16%,28% 8%,0 5%
   );
   z-index:0;
 }
 
-/* Menu item */
-.menu-item{
+/* Menu rows */
+.menu-row{
   position:relative;
-  min-height:185px;
+  z-index:1;
+  min-height:194px;
   display:grid;
   grid-template-columns:1fr 1fr;
   align-items:center;
-  gap:24px;
-  margin:0 0 10px;
-  z-index:1;
+  gap:18px;
+  margin-bottom:7px;
 }
+.menu-row.reverse{direction:rtl}
+.menu-row.reverse > *{direction:ltr}
 
-.menu-item:nth-child(even){
-  direction:rtl;
-}
-.menu-item:nth-child(even) > *{
-  direction:ltr;
-}
-
-.item-copy{
-  padding:22px 18px;
-}
-.menu-item:nth-child(odd) .item-copy{
-  text-align:right;
-}
-.menu-item:nth-child(even) .item-copy{
-  text-align:left;
-}
-
+.copy{padding:18px}
+.copy.right{text-align:right}
+.copy.left{text-align:left}
 .category{
   font-family:'Space Mono',monospace;
   font-size:9px;
-  letter-spacing:.16em;
   text-transform:uppercase;
-  opacity:.65;
-  margin-bottom:4px;
+  letter-spacing:.14em;
+  opacity:.7;
 }
-
-.item-title{
-  margin:0;
+.title{
+  margin:4px 0 0;
   font-family:'Baloo 2',sans-serif;
+  font-size:clamp(27px,5.5vw,46px);
   font-weight:700;
-  font-size:clamp(29px,6vw,48px);
   line-height:.92;
-  color:var(--cream);
   letter-spacing:-.02em;
 }
-
-.item-desc{
+.desc{
   margin:9px 0 0;
-  font-size:14px;
+  max-width:320px;
+  font-size:13px;
   line-height:1.35;
   color:var(--muted);
-  max-width:330px;
 }
-
-.menu-item:nth-child(odd) .item-desc{
-  margin-left:auto;
-}
-
+.copy.right .desc{margin-left:auto}
 .price{
-  display:inline-block;
-  margin-top:10px;
+  display:inline-flex;
+  margin-top:9px;
+  color:var(--cream);
   font-family:'Space Mono',monospace;
   font-size:13px;
-  color:var(--cream);
+  font-weight:700;
   border-bottom:1px solid rgba(239,231,189,.55);
-  padding-bottom:2px;
 }
 
-.food-visual{
-  width:155px;
-  height:155px;
+/* Guaranteed-visible food / vegetarian symbols */
+.food-symbol{
+  width:156px;height:156px;
   margin:auto;
   border-radius:50%;
-  overflow:hidden;
+  border:7px solid var(--cream);
+  background:var(--green-dark);
+  box-shadow:0 14px 30px rgba(0,0,0,.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
   position:relative;
-  border:7px solid rgba(239,231,189,.92);
-  box-shadow:0 16px 34px rgba(0,0,0,.28);
-  background:
-    radial-gradient(circle at 35% 30%, #f5d88c 0 8%, transparent 9%),
-    radial-gradient(circle at 65% 60%, #c87c32 0 13%, transparent 14%),
-    radial-gradient(circle at 38% 72%, #7a3d24 0 11%, transparent 12%),
-    radial-gradient(circle at 70% 25%, #d4a94d 0 8%, transparent 9%),
-    linear-gradient(145deg,#b86b32,#f0c86f 48%,#8d4225);
 }
-
-.food-visual:after{
+.food-symbol:before{
   content:"";
-  position:absolute;
-  inset:12%;
+  width:92px;height:92px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.28);
+  background:var(--cream-light);
+  box-shadow:inset 0 0 0 10px var(--gold);
+}
+.food-symbol .icon{
+  position:absolute;
+  z-index:2;
+  width:58px;height:58px;
+  border-radius:50%;
+  border:3px solid var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--green);
+  background:var(--cream);
+  font-family:'Space Mono',monospace;
+  font-size:24px;
+  font-weight:700;
+}
+.food-symbol .veg-dot{
+  position:absolute;
+  right:8px;bottom:12px;
+  width:29px;height:29px;
+  border:2px solid var(--cream);
+  background:var(--green-light);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cream);
+  font-family:'Space Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  z-index:3;
 }
 
-/* Visual variations */
-.visual-2{
-  background:
-    radial-gradient(circle at 30% 35%, #f3e0a0 0 13%, transparent 14%),
-    radial-gradient(circle at 67% 35%, #d9823b 0 12%, transparent 13%),
-    radial-gradient(circle at 50% 70%, #f6c96e 0 17%, transparent 18%),
-    linear-gradient(145deg,#8a4b2c,#c76b36 50%,#f1c45f);
-}
-.visual-3{
-  background:
-    radial-gradient(circle at 35% 28%, #f0d27e 0 12%, transparent 13%),
-    radial-gradient(circle at 65% 58%, #7a4d2b 0 14%, transparent 15%),
-    radial-gradient(circle at 40% 72%, #d9a84e 0 13%, transparent 14%),
-    linear-gradient(145deg,#6e3827,#bf6d35 52%,#e9c56d);
-}
-.visual-4{
-  background:
-    radial-gradient(circle at 28% 38%, #f5e4a5 0 12%, transparent 13%),
-    radial-gradient(circle at 68% 68%, #d58a3a 0 15%, transparent 16%),
-    radial-gradient(circle at 62% 28%, #a75d2e 0 9%, transparent 10%),
-    linear-gradient(145deg,#a75a31,#e2ae53 52%,#7b4129);
-}
-.visual-5{
-  background:
-    radial-gradient(circle at 30% 30%, #f3d987 0 12%, transparent 13%),
-    radial-gradient(circle at 68% 48%, #b95d31 0 15%, transparent 16%),
-    radial-gradient(circle at 45% 73%, #f1c261 0 10%, transparent 11%),
-    linear-gradient(145deg,#7d4229,#c77734 50%,#efc86e);
-}
+/* Distinct simple symbols */
+.icon.chaat:after{content:"✦"}
+.icon.dosa:after{content:"≋"}
+.icon.thali:after{content:"●"}
+.icon.sweet:after{content:"◆"}
+.icon.drink:after{content:"≋"}
 
 /* Legend */
 .legend{
   position:relative;
   z-index:2;
-  margin:28px auto 0;
-  max-width:500px;
   text-align:center;
-  font-size:12px;
+  margin:26px auto 0;
   color:var(--muted);
+  font-size:12px;
 }
-.legend strong{color:var(--cream)}
+.legend-line{display:inline-flex;align-items:center;gap:7px;margin:0 8px}
+.legend-dot{
+  width:12px;height:12px;border:2px solid var(--green-light);
+  background:var(--cream);border-radius:50%;display:inline-block;
+}
+.legend-dot.spicy{border-color:#b6d5b8;background:#b6d5b8}
 
-/* QR / contact */
+/* QR */
 .connect{
-  position:relative;
-  z-index:2;
-  margin:42px auto 0;
-  max-width:580px;
-  padding:28px 20px;
+  position:relative;z-index:2;
+  margin:38px auto 0;
+  max-width:590px;
+  padding:28px 18px;
   text-align:center;
-  border:1px solid rgba(239,231,189,.38);
-  border-radius:28px;
-  background:rgba(0,0,0,.12);
-  backdrop-filter:blur(8px);
+  border:1px solid rgba(239,231,189,.4);
+  border-radius:26px;
+  background:rgba(3,37,29,.45);
 }
-
-.connect h3{
+.connect h2{
   margin:0;
   font-family:'Baloo 2',sans-serif;
-  font-size:32px;
-  color:var(--cream);
+  font-size:31px;
 }
-
-.connect p{
-  margin:2px 0 20px;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.qr-shell{
-  width:170px;
-  height:170px;
+.connect p{margin:2px 0 19px;color:var(--muted);font-size:13px}
+.qr-box{
+  width:170px;height:170px;
   margin:auto;
-  padding:12px;
   background:var(--cream);
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
 }
-#qrcode,#qrcode img{
-  width:146px !important;
-  height:146px !important;
+#qrcode,#qrcode img{width:146px!important;height:146px!important}
+.contacts{
+  margin-top:20px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:9px;
 }
-
-.contact-list{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:22px;
-}
-
-.contact-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
+.contact{
   color:var(--cream);
   text-decoration:none;
   border:1px solid rgba(239,231,189,.35);
+  padding:9px 15px;
   border-radius:999px;
-  padding:9px 16px;
   font-size:13px;
-  transition:.2s ease;
 }
-.contact-pill:hover{
-  background:rgba(239,231,189,.1);
-  transform:translateY(-1px);
-}
+.contact:hover{background:rgba(239,231,189,.1)}
 
 footer{
-  position:relative;
-  z-index:2;
   text-align:center;
-  margin-top:30px;
-  padding:12px 10px 0;
+  margin-top:28px;
   font-size:11px;
-  color:rgba(239,231,189,.58);
-  letter-spacing:.05em;
+  color:rgba(239,231,189,.6);
+  letter-spacing:.04em;
 }
 
 @media(max-width:650px){
-  .page{padding:10px 10px 38px}
-  .hero{padding-bottom:22px}
-  .menu-flow:before{width:112px}
-  .menu-item{
-    min-height:220px;
-    grid-template-columns:1fr 1fr;
-    gap:5px;
-  }
-  .food-visual{
-    width:118px;
-    height:118px;
-    border-width:5px;
-  }
-  .item-copy{padding:12px 7px}
-  .item-title{font-size:28px}
-  .item-desc{font-size:12px}
-  .price{font-size:11px}
+  .page{padding-left:9px;padding-right:9px}
+  .menu:before{width:108px}
+  .menu-row{min-height:210px;gap:2px}
+  .copy{padding:10px 5px}
+  .title{font-size:25px}
+  .desc{font-size:11px}
   .category{font-size:7px}
-  .connect{margin-top:28px}
+  .food-symbol{width:116px;height:116px;border-width:5px}
+  .food-symbol:before{width:72px;height:72px;box-shadow:inset 0 0 0 7px var(--gold)}
+  .food-symbol .icon{width:46px;height:46px;font-size:19px}
+  .food-symbol .veg-dot{width:24px;height:24px;right:3px;bottom:7px;font-size:10px}
 }
-
 @media(max-width:390px){
-  .menu-flow:before{width:92px}
-  .menu-item{gap:0}
-  .food-visual{width:100px;height:100px}
-  .item-title{font-size:24px}
-  .item-desc{font-size:11px}
+  .menu:before{width:92px}
+  .food-symbol{width:100px;height:100px}
+  .food-symbol:before{width:62px;height:62px}
+  .food-symbol .icon{width:40px;height:40px;font-size:16px}
+  .title{font-size:22px}
+  .desc{font-size:10px}
 }
 </style>
 </head>
@@ -397,9 +300,9 @@ footer{
 <div class="page">
 
 <header class="hero">
-  <div class="brand-top">Prashadam Restaurant</div>
+  <div class="top-name">Prashadam Restaurant</div>
 
-  <svg class="lotus" viewBox="0 0 120 100" aria-hidden="true">
+  <svg class="lotus" viewBox="0 0 120 100" aria-label="Lotus symbol">
     <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-42 60 96)"/>
     <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z" transform="rotate(-21 60 96)"/>
     <path d="M60,96 C42,74 38,46 60,18 C82,46 78,74 60,96 Z"/>
@@ -408,77 +311,93 @@ footer{
   </svg>
 
   <h1>OUR MENU</h1>
-  <h2>Pure Vegetarian</h2>
+  <div class="sub">प्रसादम · PURE VEG</div>
   <div class="pure-veg">PURE<br>VEG</div>
 </header>
 
-<main class="menu-flow">
+<main class="menu">
 
-  <section class="menu-item">
-    <div class="item-copy">
-      <div class="category">Chaat · Starter</div>
-      <h3 class="item-title">Aloo Tikki Chaat</h3>
-      <p class="item-desc">Crisp potato patties with mint chutney, tamarind, curd and pomegranate.</p>
+  <section class="menu-row">
+    <div class="copy right">
+      <div class="category">CHAAT · STARTERS</div>
+      <h2 class="title">Aloo Tikki Chaat</h2>
+      <p class="desc">Crisp potato patties, tangy tamarind &amp; mint chutney, whisked curd and pomegranate.</p>
       <span class="price">₹110</span>
     </div>
-    <div class="food-visual visual-1" aria-label="Food illustration"></div>
+    <div class="food-symbol">
+      <span class="icon chaat"></span>
+      <span class="veg-dot">V</span>
+    </div>
   </section>
 
-  <section class="menu-item">
-    <div class="item-copy">
-      <div class="category">South Indian</div>
-      <h3 class="item-title">Ghee Podi Dosa</h3>
-      <p class="item-desc">Crisp dosa with roasted podi, ghee, sambar and coconut chutney.</p>
+  <section class="menu-row reverse">
+    <div class="copy left">
+      <div class="category">SOUTH INDIAN</div>
+      <h2 class="title">Ghee Podi Dosa</h2>
+      <p class="desc">Crisp rice crepe, roasted lentil chutney powder, ghee, sambar &amp; coconut chutney.</p>
       <span class="price">₹140</span>
     </div>
-    <div class="food-visual visual-2" aria-label="Food illustration"></div>
+    <div class="food-symbol">
+      <span class="icon dosa"></span>
+      <span class="veg-dot">V</span>
+    </div>
   </section>
 
-  <section class="menu-item">
-    <div class="item-copy">
-      <div class="category">Thali</div>
-      <h3 class="item-title">Satvik Thali</h3>
-      <p class="item-desc">Dal, seasonal sabzi, paneer curry, jeera rice, roti, salad, papad and kheer.</p>
+  <section class="menu-row">
+    <div class="copy right">
+      <div class="category">NORTH INDIAN THALI</div>
+      <h2 class="title">Satvik Thali</h2>
+      <p class="desc">Dal tadka, seasonal sabzi, paneer curry, jeera rice, roti, salad, papad and kheer.</p>
       <span class="price">₹260</span>
     </div>
-    <div class="food-visual visual-3" aria-label="Food illustration"></div>
+    <div class="food-symbol">
+      <span class="icon thali"></span>
+      <span class="veg-dot">V</span>
+    </div>
   </section>
 
-  <section class="menu-item">
-    <div class="item-copy">
-      <div class="category">Dessert</div>
-      <h3 class="item-title">Gajar Halwa</h3>
-      <p class="item-desc">Slow-cooked carrot and milk dessert with ghee-roasted nuts.</p>
+  <section class="menu-row reverse">
+    <div class="copy left">
+      <div class="category">MITHAI · SWEETS</div>
+      <h2 class="title">Gajar Halwa</h2>
+      <p class="desc">Slow-cooked carrot &amp; milk, ghee-roasted nuts, served warm.</p>
       <span class="price">₹110</span>
     </div>
-    <div class="food-visual visual-4" aria-label="Food illustration"></div>
+    <div class="food-symbol">
+      <span class="icon sweet"></span>
+      <span class="veg-dot">V</span>
+    </div>
   </section>
 
-  <section class="menu-item">
-    <div class="item-copy">
-      <div class="category">Beverage</div>
-      <h3 class="item-title">Filter Coffee</h3>
-      <p class="item-desc">South Indian style filter coffee, freshly brewed and frothed.</p>
+  <section class="menu-row">
+    <div class="copy right">
+      <div class="category">BEVERAGES</div>
+      <h2 class="title">Filter Coffee</h2>
+      <p class="desc">South Indian style, freshly brewed and frothed by hand.</p>
       <span class="price">₹50</span>
     </div>
-    <div class="food-visual visual-5" aria-label="Food illustration"></div>
+    <div class="food-symbol">
+      <span class="icon drink"></span>
+      <span class="veg-dot">V</span>
+    </div>
   </section>
 
   <div class="legend">
-    <strong>Pure Vegetarian</strong> · Menu-only website · No online ordering
+    <span class="legend-line"><i class="legend-dot"></i> Vegetarian</span>
+    <span class="legend-line"><i class="legend-dot spicy"></i> Spicy available</span>
   </div>
 
   <section class="connect">
-    <h3>SCAN FOR MENU</h3>
-    <p>View the Prashadam Restaurant menu on your phone</p>
+    <h2>SCAN FOR MENU</h2>
+    <p>View the Prashadam Restaurant menu · Menu only · No online ordering</p>
 
-    <div class="qr-shell">
+    <div class="qr-box">
       <div id="qrcode"></div>
     </div>
 
-    <div class="contact-list">
-      <a class="contact-pill" href="tel:+918770481315">📞 87704 81315</a>
-      <a class="contact-pill" href="https://maps.app.goo.gl/FZ1KXrSDHpJsM4Ri8" target="_blank" rel="noopener">📍 Google Maps</a>
+    <div class="contacts">
+      <a class="contact" href="tel:+918770481315">☎ 87704 81315</a>
+      <a class="contact" href="https://maps.app.goo.gl/FZ1KXrSDHpJsM4Ri8" target="_blank" rel="noopener">⌖ Google Maps</a>
     </div>
   </section>
 </main>
@@ -492,15 +411,14 @@ footer{
 <script>
 const MENU_URL = "https://indogermseeds-ctrl.github.io/menu/";
 
-new QRCode(document.getElementById("qrcode"), {
-  text: MENU_URL,
-  width: 146,
-  height: 146,
-  colorDark: "#073f31",
-  colorLight: "#efe7bd",
-  correctLevel: QRCode.CorrectLevel.M
+new QRCode(document.getElementById("qrcode"),{
+  text:MENU_URL,
+  width:146,
+  height:146,
+  colorDark:"#073f31",
+  colorLight:"#efe7bd",
+  correctLevel:QRCode.CorrectLevel.M
 });
 </script>
-
 </body>
 </html>
